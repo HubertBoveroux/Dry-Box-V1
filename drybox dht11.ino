@@ -1,6 +1,3 @@
-//www.elegoo.com
-//2018.10.25
-
 #include <Wire.h>
 #include <dht_nonblocking.h>
 #include <LiquidCrystal_I2C.h>
@@ -25,12 +22,6 @@ void setup( )
 
 }
 
-
-
-/*
- * Poll for a measurement, keeping the state machine alive.  Returns
- * true if a measurement is available.
- */
 static bool measure_environment( float *temperature, float *humidity )
 {
   static unsigned long measurement_timestamp = millis( );
@@ -49,17 +40,12 @@ static bool measure_environment( float *temperature, float *humidity )
 }
 
 
-
-/*
- * Main program loop.
- */
 void loop( )
 {
   float temperature;
   float humidity;
 
-  /* Measure temperature and humidity.  If the functions returns
-     true, then a measurement is available. */
+
   if( measure_environment( &temperature, &humidity ) == true )
   {
     Serial.print( "Tempereture = " );
@@ -82,3 +68,4 @@ void loop( )
     lcd.print("%");
   }
 }
+
